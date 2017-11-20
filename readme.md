@@ -1,53 +1,71 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Sistema para caixa de farmácias
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Esse projeto tem  por objetivo avaliar o processo de desenvolvimento de um software através da aplicação de uma metodologia ágil, para a disciplina  de Engenharia de Software II do curso de Ciência da Computação do Instituto Federal Catarinense - Campus Videira.
 
-## About Laravel
+## Dependências
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+* PHP >= 7.0.0
+* MySQL Server >= 5.5.54
+* OpenSSL PHP Extension
+* PDO PHP Extension
+* Mbstring PHP Extension
+* Tokenizer PHP Extension
+* XML PHP Extension
+ 
+## Layout
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+O sistema utiliza o layout de painel de controle [AdminLTE](https://adminlte.io/), sua documentação pode ser encontrada [aqui](https://adminlte.io/docs/2.4/installation).
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+## Configuração
 
-## Learning Laravel
+Após clonar o projeto, com o terminal aberto na pasta do projeto, execute o comando:
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+```composer install --no-scripts```
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+Renomeie então o arquivo:
 
-## Laravel Sponsors
+```.env.example```
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
+para
 
-- **[Vehikl](http://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
+```.env```
 
-## Contributing
+Dentro do arquivo .env edite os campos para que fiquem como os demonstrados abaixo:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+```DB_CONNECTION=mysql```
 
-## Security Vulnerabilities
+```DB_HOST=127.0.0.1```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+```DB_PORT=3306```
 
-## License
+```DB_DATABASE=farmacia```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+```DB_USERNAME=root```
+
+```DB_PASSWORD=1234```
+
+Obs: No lugar de "root" e "1234" coloque o usuário e a senha atribuidos na instalação do seu MySQL.
+
+Crie então uma nova chave para a aplicação com o comando:
+
+```php artisan key:generate```
+
+Crie então no MySQL um BD (banco de dados) chamado "farmacia" (caso deseje utilizar outro nome modifique também no DB_DATABASE).
+
+>Obs: O Laravel possui definido como codificação de caracteres padrão o formato ```utf8mb4_unicode_ci```
+
+Em seguida, no terminal aberto na pasta do projeto, execute o comando para criação das tabelas:
+
+```php artisan migrate``` 
+
+Pronto! Agora, para executar o sistema, utilize o comando:
+
+```php artisan serve```
+
+No navegador pode acessar o sistema através do endereço:
+
+```http://127.0.0.1:8000```
+
+ou então:
+
+```localhost:8000```
