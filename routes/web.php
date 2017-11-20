@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
  * Suas rotas vão colocada daqui para baixo
  */
 
+Route::resource('clientes', 'ClienteController');
 
-
+Route::post('clientes/transacao/{id}', 'ClienteController@transacao')->name('clientes.transacao');
 
