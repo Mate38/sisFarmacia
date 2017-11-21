@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email', 100)->unique();
             $table->string('password');
+            $table->integer('nivel');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -27,6 +28,7 @@ class CreateUsersTable extends Migration
             'name' => 'admin',
             'email' => 'admin@admin.com',
             'password' => bcrypt('admin123'),
+            'nivel' => '1',
         ]);
     }
 
