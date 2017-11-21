@@ -28,6 +28,7 @@ class CreateEstoquesTable extends Migration
             $table->date('data_fabricacao')->nullable();
             $table->string('lote_produto', 45)->nullable();
             $table->unsignedInteger('produtos_idprodutos');
+            $table->timestamps();
 
             $table->index(["produtos_idprodutos"], 'fk_estoques_produtos1_idx');
 

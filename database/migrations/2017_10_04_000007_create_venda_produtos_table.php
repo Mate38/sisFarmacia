@@ -25,6 +25,7 @@ class CreateVendaProdutosTable extends Migration
             $table->integer('quantidade')->nullable();
             $table->decimal('valor_unitario', 10, 2)->nullable();
             $table->unsignedInteger('vendas_idvendas');
+            $table->timestamps();
 
             $table->index(["vendas_idvendas"], 'fk_vendaprodutos_vendas1_idx');
 

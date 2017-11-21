@@ -24,6 +24,7 @@ class CreateVendedoresTable extends Migration
             $table->increments('idvendedores');
             $table->string('nome', 45)->nullable();
             $table->string('cpf', 45)->nullable();
+            $table->timestamps();
         });
     }
 

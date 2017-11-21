@@ -26,6 +26,7 @@ class CreateVendasTable extends Migration
             $table->decimal('valor_total', 10, 2)->nullable();
             $table->unsignedInteger('clientes_idcliente');
             $table->unsignedInteger('vendedores_idvendedores');
+            $table->timestamps();
 
             $table->index(["clientes_idcliente"], 'fk_Vendas_Clientes1_idx');
 

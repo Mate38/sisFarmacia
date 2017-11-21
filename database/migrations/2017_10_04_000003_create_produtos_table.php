@@ -30,6 +30,7 @@ class CreateProdutosTable extends Migration
             $table->float('quantidade')->nullable();
             $table->string('nome_generico', 45)->nullable();
             $table->unsignedInteger('fornecedores_idfornecedores');
+            $table->timestamps();
 
             $table->index(["fornecedores_idfornecedores"], 'fk_produtos_fornecedores1_idx');
 
