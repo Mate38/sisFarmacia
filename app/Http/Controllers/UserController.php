@@ -8,8 +8,13 @@ use App\Http\Requests;
 
 use App\User;
 
+use Illuminate\Foundation\Auth\RegistersUsers;
+
 class UserController extends Controller
 {
+
+    use RegistersUsers;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -25,23 +30,6 @@ class UserController extends Controller
     public function create()
     {
         return view('users.create');
-    }
-
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
-        
-        $users = new User;
-        $users->name = $request->nome;
-        $users->email = $request->email;
-        $users->password = $request->password;
-        $users->save();
-        return redirect('users')->with('message', 'Usuário atualizado com sucesso!');
-        
     }
 
     public function show($id)
