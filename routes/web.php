@@ -19,6 +19,10 @@ Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
 
+Route::resource('clientes', 'ClienteController');
+
+Route::post('clientes/transacao/{id}', 'ClienteController@transacao')->name('clientes.transacao');
+
 /**
  * Suas rotas vão colocada daqui para baixo
  */
