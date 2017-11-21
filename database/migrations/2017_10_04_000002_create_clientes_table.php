@@ -26,6 +26,7 @@ class CreateClientesTable extends Migration
             $table->string('cpf', 45)->nullable();
             $table->string('endereco', 45)->nullable();
             $table->decimal('saldo', 10, 2)->nullable();
+            $table->timestamps();
         });
     }
 

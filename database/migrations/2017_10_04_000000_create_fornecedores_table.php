@@ -25,6 +25,7 @@ class CreateFornecedoresTable extends Migration
             $table->string('nome', 100)->nullable();
             $table->string('cnpj', 45)->nullable();
             $table->string('endereco', 250)->nullable();
+            $table->timestamps();
         });
     }
 
