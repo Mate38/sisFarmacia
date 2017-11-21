@@ -1,74 +1,97 @@
-@extends('adminlte::master')
+@extends('adminlte::page')
 
-@section('adminlte_css')
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/auth.css') }}">
-    @yield('css')
+@section('title')
+
+@section('content_header')
+    <section class="content-header">
+      <h1>
+        Cadastro de usuário
+      </h1>
 @stop
 
-@section('body_class', 'register-page')
+@section('content')
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="box">
 
-@section('body')
-    <div class="register-box">
-        <div class="register-logo">
-            <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
-        </div>
+        <form action="{{ url(config('adminlte.register_url', 'register')) }}" method="post" class="form-horizontal">
+            {!! csrf_field() !!}
 
-        <div class="register-box-body">
-            <p class="login-box-msg">{{ trans('adminlte::adminlte.register_message') }}</p>
-            <form action="{{ url(config('adminlte.register_url', 'register')) }}" method="post">
-                {!! csrf_field() !!}
+            <div class="box-body">
 
                 <div class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">
-                    <input type="text" name="name" class="form-control" value="{{ old('name') }}"
-                           placeholder="{{ trans('adminlte::adminlte.full_name') }}">
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    <label for="name" class="col-sm-2 control-label">Nome</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="name" class="form-control col-sm-10" value="{{ old('name') }}"
+                            placeholder="Nome do usuário">
+                    </div>
                     @if ($errors->has('name'))
                         <span class="help-block">
                             <strong>{{ $errors->first('name') }}</strong>
                         </span>
                     @endif
                 </div>
+
                 <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
-                    <input type="email" name="email" class="form-control" value="{{ old('email') }}"
-                           placeholder="{{ trans('adminlte::adminlte.email') }}">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    <label for="email" class="col-sm-2 control-label">E-mail</label>
+                    <div class="col-sm-10">
+                        <input type="email" name="email" class="form-control" value="{{ old('email') }}"
+                            placeholder="{{ trans('adminlte::adminlte.email') }}">
+                    </div>
                     @if ($errors->has('email'))
                         <span class="help-block">
                             <strong>{{ $errors->first('email') }}</strong>
                         </span>
                     @endif
                 </div>
+
                 <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
-                    <input type="password" name="password" class="form-control"
-                           placeholder="{{ trans('adminlte::adminlte.password') }}">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <label for="password" class="col-sm-2 control-label">Senha</label>
+                    <div class="col-sm-10">
+                        <input type="password" name="password" class="form-control"
+                            placeholder="{{ trans('adminlte::adminlte.password') }}">
+                    </div>
                     @if ($errors->has('password'))
                         <span class="help-block">
                             <strong>{{ $errors->first('password') }}</strong>
                         </span>
                     @endif
                 </div>
+
                 <div class="form-group has-feedback {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
-                    <input type="password" name="password_confirmation" class="form-control"
-                           placeholder="{{ trans('adminlte::adminlte.retype_password') }}">
-                    <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                    <label for="password" class="col-sm-2 control-label">Confirmação da senha</label>
+                    <div class="col-sm-10">
+                        <input type="password" name="password_confirmation" class="form-control"
+                            placeholder="{{ trans('adminlte::adminlte.retype_password') }}">
+                    </div>
                     @if ($errors->has('password_confirmation'))
                         <span class="help-block">
                             <strong>{{ $errors->first('password_confirmation') }}</strong>
                         </span>
                     @endif
                 </div>
-                <button type="submit"
-                        class="btn btn-primary btn-block btn-flat"
-                >{{ trans('adminlte::adminlte.register') }}</button>
-            </form>
-            <div class="auth-links">
-                <a href="{{ url(config('adminlte.login_url', 'login')) }}"
-                   class="text-center">{{ trans('adminlte::adminlte.i_already_have_a_membership') }}</a>
+
+                <div class="form-group has-feedback {{ $errors->has('nivel') ? 'has-error' : '' }}">
+                    <label for="nivel" class="col-sm-2 control-label">Nível de acesso</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="nivel" value="{{ old('nivel') }}" placeholder="Nivel de acesso">
+                            <option value="2">Operacional</option>
+                            <option value="1">Administrativo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary pull-right">Salvar</button>
+                </div>
+
             </div>
-        </div>
-        <!-- /.form-box -->
-    </div><!-- /.register-box -->
+
+        </form>
+
+    </div>
+  </div>
+</div>
 @stop
 
 @section('adminlte_js')

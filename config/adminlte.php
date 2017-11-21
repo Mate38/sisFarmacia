@@ -93,7 +93,7 @@ return [
 
     'login_url' => 'login',
 
-    'register_url' => 'null',
+    'register_url' => 'register',
 
     /*
     |--------------------------------------------------------------------------
@@ -170,18 +170,16 @@ return [
                 ],
             ],
         ],
-        'LABELS',
+        'ADMINISTRATIVO',
         [
-            'text'       => 'Important',
-            'icon_color' => 'red',
+            'text'       => 'Usuários Cadastrados',
+            'url'  => 'users',
+            'icon' => 'user',
         ],
         [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
+            'text'       => 'Cadastrar Novo Usuário',
+            'url'  => 'users/create',
+            'icon' => 'user',
         ],
     ],
 
