@@ -172,7 +172,12 @@ return [
         ],
         'ADMINISTRATIVO',
         [
-            'text'       => 'Cadastrar Usuário',
+            'text'       => 'Usuários Cadastrados',
+            'url'  => 'users',
+            'icon' => 'user',
+        ],
+        [
+            'text'       => 'Cadastrar Novo Usuário',
             'url'  => 'users/create',
             'icon' => 'user',
         ],
