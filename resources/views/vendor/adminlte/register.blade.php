@@ -71,6 +71,16 @@
                     @endif
                 </div>
 
+                <div class="form-group has-feedback {{ $errors->has('nivel') ? 'has-error' : '' }}">
+                    <label for="nivel" class="col-sm-2 control-label">Nível de acesso</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="nivel" value="{{ old('nivel') }}" placeholder="Nivel de acesso">
+                            <option value="2">Operacional</option>
+                            <option value="1">Administrativo</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary pull-right">Salvar</button>
                 </div>

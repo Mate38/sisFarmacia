@@ -170,18 +170,11 @@ return [
                 ],
             ],
         ],
-        'LABELS',
+        'ADMINISTRATIVO',
         [
-            'text'       => 'Important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
+            'text'       => 'Cadastrar Usuário',
+            'url'  => 'users/create',
+            'icon' => 'user',
         ],
     ],
 
