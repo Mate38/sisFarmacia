@@ -28,23 +28,9 @@
             <!-- /.box-header -->
     <!-- form start -->
 
-
-
-
-
-
-
-
-
-
-
-
             {!! Form::open(array('url' => '/produtos', 'class'=>'form-horizontal')) !!}
             <!--<form class="form-horizontal" method="post" action="/produtos">-->
               <div class="box-body">
-
-
-
 
               <!--{!! csrf_field() !!}-->
 

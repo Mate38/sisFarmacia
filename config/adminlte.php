@@ -110,16 +110,61 @@ return [
     'menu' => [
         'MAIN NAVIGATION',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Vendas',
+            'url'  => 'home',
+            'icon' => 'user',
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text' => 'Clientes',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'url'  => 'clientes',
+                ],
+                [
+                    'text' => 'Cadastrar',
+                    'url'  => 'clientes/create',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Estoque',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'url'  => 'estoques',
+                ],
+                [
+                    'text' => 'Cadastrar',
+                    'url'  => 'estoques/create',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Produtos',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'url'  => 'produtos',
+                ],
+                [
+                    'text' => 'Cadastrar',
+                    'url'  => 'produtos/create',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Forecedores',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'url'  => 'fornecedores',
+                ],
+                [
+                    'text' => 'Cadastrar',
+                    'url'  => 'fornecedores/create',
+                ],
+            ],
         ],
         'ACCOUNT SETTINGS',
         [

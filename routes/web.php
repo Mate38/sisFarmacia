@@ -19,14 +19,17 @@ Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
 
-Route::resource('clientes', 'ClienteController');
-
-Route::post('clientes/transacao/{id}', 'ClienteController@transacao')->name('clientes.transacao');
-
 /**
  * Suas rotas vão colocada daqui para baixo
  */
 
 Route::resource('users', 'UserController');
+
+Route::resource('clientes', 'ClienteController');
+Route::resource('produtos', 'ProdutoController');
+Route::resource('estoques', 'EstoqueController');
+Route::resource('fornecedores', 'FornecedorController');
+
+Route::post('clientes/transacao/{id}', 'ClienteController@transacao')->name('clientes.transacao');
 
 
