@@ -27,7 +27,7 @@
               <h3 class="box-title">Edição de fornecedores</h3>
             </div>
      
-            {!! Form::open(['url' => 'fornecedores/'.$detailpage->id, 'method' => 'PUT', 'class'=>'form-horizontal']) !!}
+            {!! Form::open(['url' => 'estoques/'.$detailpage->id, 'method' => 'PUT', 'class'=>'form-horizontal']) !!}
               <div class="box-body">
 
                 <div class="form-group has-feedback {{ $errors->has('Quantidade') ? 'has-error' : '' }}">

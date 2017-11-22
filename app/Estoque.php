@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Estoque extends Model
 {
+ 
+    protected $primaryKey = 'idestoques'; 
+
     protected $table = "estoques";
 
     protected $fillable = [
@@ -13,7 +16,7 @@ class Estoque extends Model
 		'data_chegada',
 		'data_vencimento',
 		'data_fabricacao',
-		'lote_produto'
+		'lote_produto',
 		'produtos_idprodutos', 
     ];
 

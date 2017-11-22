@@ -16,7 +16,6 @@
 @stop
 
 @section('content')
-
   <!-- Main content -->
       <div class="row">
         <!-- left column -->
@@ -28,20 +27,27 @@
             </div>
             <!-- /.box-header -->
     <!-- form start -->
-            {!! Form::open(['url' => 'fornecedores/'.$detailpage->id, 'method' => 'PUT', 'class'=>'form-horizontal']) !!}
+            {!! Form::open(['url' => 'fornecedores/'.$detailpage->idfornecedores, 'method' => 'PUT', 'class'=>'form-horizontal']) !!}
               <div class="box-body">
 
                 <div class="form-group has-feedback {{ $errors->has('Nome') ? 'has-error' : '' }}">
                   <label for="Nome" class="col-sm-2 control-label">Nome</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="Nome" value="{{ $detailpage->Nome }}" placeholder="">
+                    <input type="text" class="form-control" name="Nome" value="{{ $detailpage->nome }}" placeholder="">
                   </div>
                 </div>
 
                 <div class="form-group has-feedback {{ $errors->has('CNPJ') ? 'has-error' : '' }}">
                   <label for="CNPJ" class="col-sm-2 control-label">CNPJ</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="CNPJ" value="{{ $detailpage->CNPJ }}" placeholder="">
+                    <input type="text" class="form-control" name="CNPJ" value="{{ $detailpage->cnpj }}" placeholder="">
+                  </div>
+                </div>
+
+                <div class="form-group has-feedback {{ $errors->has('Endereco') ? 'has-error' : '' }}">
+                  <label for="Endereco" class="col-sm-2 control-label">Endereco</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="Endereco" value="{{ $detailpage->endereco }}" placeholder="">
                   </div>
                 </div>
 
