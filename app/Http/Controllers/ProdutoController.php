@@ -83,17 +83,17 @@ class ProdutoController extends Controller
             'Fornecedor_idFornecedor' => 'required',
         ]);
     
-        $produtos = new Produto;
-        $produtos->nome = $request->nome;
-        $produtos->valor = $request->valor;
-        $produtos->descricao = $request->descricao;
-		$produtos->classificacao = $request->classificao;
-		$produtos->unidade = $request->unidade;
-		$produtos->quantidade = $request->quantidade;
-        $produtos->nome_generico = $request->nome_generico;
+        $produtos = Produto::find($id);
+        $produtos->nome = $request->Nome;
+        $produtos->valor = $request->Valor;
+        $produtos->descricao = $request->Descricao;
+		$produtos->classificacao = $request->Classificacao;
+		$produtos->unidade = $request->Unidade_comp;
+		$produtos->quantidade = $request->Quantidade_comp;
+        $produtos->nome_generico = $request->Nome_generico;
         
-		$produtos->fornecedores_idfornecedores = $request->fornecedores_idfornecedores;
-        $produtos->save();dd($request);
+		$produtos->fornecedores_idfornecedores = $request->Fornecedor_idFornecedor;
+        $produtos->save();
         return redirect('produtos')->with('message', 'Produto atualizado com sucesso!');
     }
 
