@@ -18,7 +18,8 @@ class EstoqueController extends Controller
 
     public function index()
     {
-        $estoques = Estoque::orderBy('id', 'asc')->get();
+        
+        $estoques = Estoque::orderBy('idestoques', 'asc')->get();
         $produtos = Produto::orderBy('nome', 'asc')->get();
         return view('estoques.index',['estoques' => $estoques],['produtos' => $produtos]);
     }
@@ -31,10 +32,11 @@ class EstoqueController extends Controller
 
     public function store(Request $request)
     {
+
         $this->validate($request, [
-            'produtos_id' => 'required',       
+            'Produtos_idProdutos' => 'required',       
         ]);
-        
+       
         $estoques = new Estoque;
         $estoques->quantidade = $request->quantidade;
         $estoques->data_chegada = $request->data_chegada;
