@@ -30,18 +30,22 @@
           <th>Nome</th>     
           <th>CNPJ</th>
           <th>Endereco</th>
+          <td>Editar</th>
+          <td>Excluir</th>
          
         </tr>
       </thead>
       <tbody>
         @foreach($fornecedores as $fornecedor)
           <tr>
-            <td>{{$fornecedor->Nome}}</td>
-            <td>{{$fornecedor->CNPJ}}</td>
-            <td>{{$fornecedor->Endereco}}</td>
+            <td>{{$fornecedor->nome}}</td>
+            <td>{{$fornecedor->cnpj}}</td>
+            <td>{{$fornecedor->endereco}}</td>
             <td>
-              {!! Form::open(['url' => 'fornecedores/'.$fornecedor->id, 'method' => 'delete', 'class'=>'form-horizontal', 'id'=>"form_buttons"]) !!}
-                <a href="/fornecedores/{{ $fornecedor->id }}/edit" class="btn-sm bg-yellow">Editar</a>
+              <a href="/fornecedores/{{ $fornecedor->idfornecedores }}/edit" class="btn-sm bg-yellow">Editar</a>
+            </td>
+            <td>
+              {!! Form::open(['url' => 'fornecedores/'.$fornecedor->idfornecedores, 'method' => 'DELETE', 'class'=>'form-horizontal', 'id'=>"form_buttons"]) !!}
                 <a href="#" class="btn-sm bg-red" onClick="document.getElementById('form_buttons').submit();">Excluir</a>
               {!! Form::close() !!}
             </td>

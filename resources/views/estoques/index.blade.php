@@ -39,16 +39,16 @@
       <tbody>
         @foreach($estoques as $estoque)
           <tr>
-            <td>{{$estoque->Quantidade}}</td>
-            <td>{{$estoque->Data_chegada}}</td>
-            <td>{{$estoque->Data_vencimento}}</td>
-            <td>{{$estoque->Data_fabricacao}}</td>
-            <td>{{$estoque->Lote_produto}}</td>
-            <td>{{$estoque->Produtos_idProdutos}}</td>
+            <td>{{$estoque->quantidade}}</td>
+            <td>{{$estoque->data_chegada}}</td>
+            <td>{{$estoque->data_vencimento}}</td>
+            <td>{{$estoque->data_fabricacao}}</td>
+            <td>{{$estoque->lote_produto}}</td>
+            <td>{{$estoque->produtos_idprodutos}}</td>
 
             <td>
-              {!! Form::open(['url' => 'estoques/'.$estoques->id, 'method' => 'delete', 'class'=>'form-horizontal', 'id'=>"form_buttons"]) !!}
-                <a href="/estoques/{{ $estoque->id }}/edit" class="btn-sm bg-yellow">Editar</a>
+              {!! Form::open(['url' => 'estoques/'.$estoque->idestoques, 'method' => 'delete', 'class'=>'form-horizontal', 'idestoques'=>"form_buttons"]) !!}
+                <a href="/estoques/{{ $estoque->idestoques }}/edit" class="btn-sm bg-yellow">Editar</a>
                 <a href="#" class="btn-sm bg-red" onClick="document.getElementById('form_buttons').submit();">Excluir</a>
               {!! Form::close() !!}
             </td>

@@ -18,7 +18,8 @@ class EstoqueController extends Controller
 
     public function index()
     {
-        $estoques = Estoque::orderBy('id', 'asc')->get();
+        
+        $estoques = Estoque::orderBy('idestoques', 'asc')->get();
         $produtos = Produto::orderBy('nome', 'asc')->get();
         return view('estoques.index',['estoques' => $estoques],['produtos' => $produtos]);
     }
@@ -31,22 +32,23 @@ class EstoqueController extends Controller
 
     public function store(Request $request)
     {
+
         $this->validate($request, [
-            'produtos_id' => 'required',       
+            'Produtos_idProdutos' => 'required',       
         ]);
-        
+
         $estoques = new Estoque;
-        $estoques->quantidade = $request->quantidade;
-        $estoques->data_chegada = $request->data_chegada;
-        $estoques->data_vencimento = $request->data_vencimento;
-		$estoques->data_fabricacao = $request->data_fabricacao;
-		$estoques->lote_produto = $request->lote_produto;
-		$estoques->produtos_idprodutos = $request->produtos_idprodutos;
+        $estoques->Quantidade = $request->Quantidade;
+        $estoques->Data_chegada = $request->Data_chegada;
+        $estoques->Data_vencimento = $request->Data_vencimento;
+		$estoques->Data_fabricacao = $request->Data_fabricacao;
+        $estoques->Lote_produto = $request->Lote_produto;
+		$estoques->Produtos_idProdutos = $request->Produtos_idProdutos;
        
         $estoques->save();
 
-        $produto = Produto::find($request->produtos_idprodutos);
-        $produto->quantidade += $request->quantidade;
+        $produto = Produto::find($request->Produtos_idProdutos);
+        $produto->Quantidade += $request->Quantidade;
         $produto->save();
 
         return redirect('estoques')->with('message', 'Estoque atualizado com sucesso!');

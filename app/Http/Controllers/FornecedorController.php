@@ -54,8 +54,8 @@ class FornecedorController extends Controller
     public function edit($id)
     {
         $fornecedores = Fornecedor::find($id);
-
-        return view('fornecedores.edit')->with('detailpage', $fornecedores);
+    
+        return view('fornecedores.edit',['detailpage'=>$fornecedores]);
     }
 
     public function update(Request $request, $id)
@@ -76,6 +76,7 @@ class FornecedorController extends Controller
 
     public function destroy($id)
     {
+        
         $fornecedores = Fornecedor::find($id);
         $fornecedores->delete();
         return redirect('fornecedores');

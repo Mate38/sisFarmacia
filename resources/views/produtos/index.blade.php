@@ -12,13 +12,12 @@
       <ol class="breadcrumb">
         <li><a href="home"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="produtos">Produtos</a></li>
-        <li class="active">Cadastro</li>
+        <li class="active">Produtos</li>
       </ol>
     </section>
 @stop
 
 @section('content')
-
   <div class="box box-success">
     <div class="box-header">
       <h3 class="box-title">Produtos cadastrados</h3>
@@ -40,25 +39,26 @@
       </thead>
       <tbody>
         @foreach($produtos as $produto)
+       
           <tr>
-            <td>{{$produto->Nome}}</td>
-            <td>{{$produto->Valor}}</td>
-            <td>{{$produto->Descricao}}</td>
-            <td>{{$produto->Classificacao}}</td>
-            <td>{{$produto->Unidade_comp}}</td>
-            <td>{{$produto->Quantidade_comp}}</td>
-            <td>{{$produto->Nome_generico}}</td>
-            <td>{{$produto->Fornecedor_idFornecedor}}</td>
+            <td>{{$produto->nome}}</td>
+            <td>{{$produto->valor}}</td>
+            <td>{{$produto->descricao}}</td>
+            <td>{{$produto->classificacao}}</td>
+            <td>{{$produto->unidade}}</td>
+            <td>{{$produto->quantidade}}</td>
+            <td>{{$produto->nome_generico}}</td>
+            <td>{{$produto->fornecedores_idfornecedores}}</td>
             <td>
-              {!! Form::open(['url' => 'produtos/'.$produto->id, 'method' => 'delete', 'class'=>'form-horizontal', 'id'=>"form_buttons"]) !!}
-                <!--<a href="/produtos/{{ $produto->id }}" class="btn-sm bg-blue">Infos</a>-->
-                <a href="/produtos/{{ $produto->id }}/edit" class="btn-sm bg-yellow">Editar</a>
-                <!--<a href="/produtos/{{ $produto->id }}/delete" class="btn-sm bg-red">Excluir</a>-->
-                <!--<input type="submit" name="name" class="btn-sm bg-red" value="Apagar">-->
-                <!--<button type="submit" class="btn-sm bg-red">Excluir</button>-->
-                <a href="#" class="btn-sm bg-red" onClick="document.getElementById('form_buttons').submit();">Excluir</a>
+              {!! Form::open(['url' => 'produtos/'.$produto->idprodutos, 'method' => 'DELETE', 'class'=>'form-horizontal', 'id'=>"form_buttons"]) !!}
+                <button type="submit" class="btn-sm bg-red" >Excluir</button>
               {!! Form::close() !!}
             </td>
+
+            <td>
+              <a href="/produtos/{{ $produto->idprodutos }}/edit" class="btn-sm bg-yellow">Editar</a>
+            </td>
+
           </tr>
         @endforeach
       </tbody>

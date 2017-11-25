@@ -17,7 +17,8 @@ class ProdutoController extends Controller
 
     public function index()
     {
-        $produtos = Produto::orderBy('nome', 'asc')->get();
+        $produtos = Produto::orderBy('Nome', 'asc')->get();
+        
         //$produtos = Produto::all();
         return view('produtos.index',['produtos' => $produtos]);
     }
@@ -29,24 +30,28 @@ class ProdutoController extends Controller
 
     public function store(Request $request)
     {
+       
         $this->validate($request, [
-            'nome' => 'required',
-            'valor' => 'required',
-			'classificacao' => 'required',
-			'unidade' => 'required',
+            'Nome' => 'required',
+            'Valor' => 'required',
+			'Classificacao' => 'required',
+			'Unidade_comp' => 'required',
+            'Quantidade_comp'=>'required',
+            'Nome_generico'=>'required',
+            'Fornecedor_idFornecedor'=>'required',
         ]);
         
         $produtos = new Produto;
-        $produtos->nome = $request->nome;
-        $produtos->valorVenda = $request->valor;
-        $produtos->descricao = $request->descricao;
-		$produtos->classificacao = $request->classificao;
-		$produtos->unidade_comp = $request->unidade_comp;
-		$produtos->quantidade_comp = $request->quantidade_comp;
-        $produtos->nome_generico = $request->nome_generico;
-		$produtos->fornecedor_idfornecedor = $request->fornecedor_idfornecedor;
+        $produtos->nome = $request->Nome;
+        $produtos->valor = $request->Valor;
+        $produtos->descricao = $request->Descricao;
+		$produtos->classificacao = $request->Classificacao;
+		$produtos->unidade = $request->Unidade_comp;
+		$produtos->quantidade = $request->Quantidade_comp;
+        $produtos->nome_generico = $request->Nome_generico;
+		$produtos->fornecedores_idfornecedores = $request->Fornecedor_idFornecedor;
         $produtos->save();
-        return redirect('produtos')->with('message', 'Produto atualizado com sucesso!');
+        return redirect('produtos')->with('message', 'Produto cadastrado com sucesso!');
         
     }
 
@@ -66,22 +71,28 @@ class ProdutoController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'nome' => 'required',
-            'valor' => 'required',
-			'classificacao' => 'required',
-			'unidade' => 'required',
-        ]);
         
-        $produtos = new Produto;
-        $produtos->nome = $request->nome;
-        $produtos->valorVenda = $request->valor;
-        $produtos->descricao = $request->descricao;
-		$produtos->classificacao = $request->classificao;
-		$produtos->unidade_comp = $request->unidade_comp;
-		$produtos->quantidade_comp = $request->quantidade_comp;
-        $produtos->nome_generico = $request->nome_generico;
-		$produtos->fornecedor_idfornecedor = $request->fornecedor_idfornecedor;
+        $this->validate($request, [
+            'Nome' => 'required',
+            'Valor' => 'required',
+            'Descricao'=>'required',
+			'Classificacao' => 'required',
+			'Unidade_comp' => 'required',
+            'Quantidade_comp' => 'required',
+            'Nome_generico' => 'required',
+            'Fornecedor_idFornecedor' => 'required',
+        ]);
+    
+        $produtos = Produto::find($id);
+        $produtos->nome = $request->Nome;
+        $produtos->valor = $request->Valor;
+        $produtos->descricao = $request->Descricao;
+		$produtos->classificacao = $request->Classificacao;
+		$produtos->unidade = $request->Unidade_comp;
+		$produtos->quantidade = $request->Quantidade_comp;
+        $produtos->nome_generico = $request->Nome_generico;
+        
+		$produtos->fornecedores_idfornecedores = $request->Fornecedor_idFornecedor;
         $produtos->save();
         return redirect('produtos')->with('message', 'Produto atualizado com sucesso!');
     }
