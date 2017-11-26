@@ -29,7 +29,7 @@
           <th>Unidade Comprada</th>
           <th>Quantidade Comprada</th>
           <th>Nome Generico</th>
-          <th>Id Fornecedor</th>
+          <th>Fornecedor</th>
           <th>Editar</th>
           <th>Excluir</th>
         </tr>
