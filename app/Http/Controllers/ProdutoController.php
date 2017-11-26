@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Produto;
+
+use App\Fornecedor;
 
 use App\Http\Requests;
-
-use App\Produto;
+use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
@@ -25,7 +26,8 @@ class ProdutoController extends Controller
 
     public function create()
     {
-        return view('produtos.create');
+        $fornecedores = Fornecedor::all();
+        return view('produtos.create', ['fornecedores' => $fornecedores]);
     }
 
     public function store(Request $request)

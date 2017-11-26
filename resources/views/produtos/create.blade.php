@@ -84,10 +84,13 @@
                 </div>
 
                 <div class="form-group has-feedback {{ $errors->has('Fornecedor_idFornecedor') ? 'has-error' : '' }}">
-                  <label for="Fornecedor_idFornecedor" class="col-sm-2 control-label">id Fornecedor</label>
+                  <label for="Fornecedor_idFornecedor" class="col-sm-2 control-label">Fornecedor</label>
                   <div class="col-sm-10">
-                  <textarea type="text" class="form-control" rows="3" name="Fornecedor_idFornecedor" placeholder="Id Fornecedor"></textarea>
-                    
+                    <select id="Fornecedor_idFornecedor" name="Fornecedor_idFornecedor" class="form-control">
+                      @foreach($fornecedores as  $fornecedor)
+                          <option value="{{$fornecedor->idfornecedores}}">{{$fornecedor->nome}}</option>
+                      @endforeach
+                    </select>
                   </div>
                 </div>
 
