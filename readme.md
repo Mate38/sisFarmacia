@@ -69,9 +69,3 @@ No navegador pode acessar o sistema através do endereço:
 ou então:
 
 ```localhost:8000```
-
-Para acesso utilize:
-
-E-mail: ```admin@admin.com```
-
-Password: ```admin123```
