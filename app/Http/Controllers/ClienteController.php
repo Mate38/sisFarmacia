@@ -4,8 +4,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Cliente;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ClienteController extends Controller
 {
@@ -82,6 +83,15 @@ class ClienteController extends Controller
     }
 
     public function store(request $request){
+
+        $validator = Validator::make($request->all(),[
+            'nome'=>'required',
+            'cpf'=>'required',
+            'endereco'=>'required'
+        ]);
+        if($validator->fails()){
+             return redirect()->back()->withErrors($validator);
+        }
 
         $cliente = new cliente();
         $cliente -> nome = $request->input('nome');
