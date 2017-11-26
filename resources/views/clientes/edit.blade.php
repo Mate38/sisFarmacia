@@ -1,32 +1,57 @@
-@extends('welcome')
+@extends('adminlte::page')
 
 <!-- Autores: jeferson, Jean -->
 
+@section('title')
+
+@section('content_header')
+    <section class="content-header">
+      <h1>
+        Clientes
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="home"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/clientes">Clientes</a></li>
+        <li class="active">Edicao</li>
+      </ol>
+    </section>
+@stop
+
 @section('content')
-  <h2>Edição de Cliente<h2>
-  <hr />
-  {{ Form::model($cliente, array('route'=>array('clientes.update', $cliente->idclientes), 'method' => 'PUT')) }}
-<table class="table table-bordered">
-  <tr>
-  <th>{{Form::label('nome', 'Nome:')}}</th>
-  <th>CPF</th>
-  </tr>
-    <tr>
-      <td>{{Form::text('nome', null, array('class' => 'form=control'))}}</td>
-      <td>{{Form::text('cpf', null, array('class' => 'form=control'))}}</td>
-  </tr>
-  <tr>
-  <th>Endereço</th>
-  <th>Saldo</th>
-  </tr>
-    
-  <tr>
-      <td>{{Form::text('endereco', null, array('class' => 'form=control'))}}</td>
-      <td>{{Form::text('saldo', null, array('class' => 'form=control'))}}</td>
-    </tr>
-  </table>
 
-    {{Form::submit('Salvar', array('class' => 'btn btn-success'))}}
+  <div class="box box-success">
+    <div class="box-header with-border">
+      <h3 class="box-title">Cadastro de Cliente</h3>
+    </div>
+    {{ Form::model($cliente, array('route'=>array('clientes.update', $cliente->idclientes), 'method' => 'PUT')) }}
 
-  {{Form::close()}}
+      <div class="box-body">
+  
+        <div class="form-group has-feedback {{ $errors->has('nome') ? 'has-error' : '' }}">
+            <label for="nome" class="col-sm-2 control-label">Nome</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="nome" placeholder="" value="{{$cliente->nome}}">
+            </div>
+          </div>
+  
+          <div class="form-group has-feedback {{ $errors->has('cpf') ? 'has-error' : '' }}">
+            <label for="cpf" class="col-sm-2 control-label">CPF</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="cpf" placeholder="" value="{{$cliente->cpf}}">
+            </div>
+          </div>
+          
+          <div class="form-group has-feedback {{ $errors->has('endereco') ? 'has-error' : '' }}">
+            <label for="endereco" class="col-sm-2 control-label">Endereço</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="endereco" placeholder="" value="{{$cliente->endereco}}">
+            </div>
+          </div>
+          
+          <div class="box-footer">
+            <button type="submit" class="btn btn-success pull-right">Salvar</button>
+          </div>
+      </div>
+    {{Form::close()}}
+  </div>  
 @endsection
