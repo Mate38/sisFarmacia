@@ -31,7 +31,7 @@
     </div>
 
 <div class="box-body table-responsive no-padding">
-      <table id="estoques" class="table table-bordered table-striped table-hover">
+      <table id="clientes" class="table table-bordered table-striped table-hover">
         <thead>
           <tr>
           <th>ID</th>
