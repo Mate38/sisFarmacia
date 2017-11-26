@@ -9,10 +9,6 @@
       <h1>
         Estoques
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="home"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Estoques</li>
-      </ol>
     </section>
 @stop
 
