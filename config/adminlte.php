@@ -111,7 +111,7 @@ return [
         'MAIN NAVIGATION',
         [
             'text' => 'Vendas',
-            'url'  => 'home',
+            'url'  => 'vendas',
             'icon' => 'user',
         ],
         [
