@@ -72,6 +72,6 @@ ou então:
 
 Para acesso utilize:
 
-E-mail: ```admin@admin.com```
+Nome: ```admin```
 
-Password: ```admin123```
+Senha: ```admin123```
