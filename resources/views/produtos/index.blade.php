@@ -45,7 +45,7 @@
             <td>{{$produto->unidade}}</td>
             <td>{{$produto->quantidade}}</td>
             <td>{{$produto->nome_generico}}</td>
-            <td>{{$produto->fornecedores_idfornecedores}}</td>
+            <td>{{$produto->nome($produto->fornecedores_idfornecedores)}}</td>
             <td>
               <a href="/produtos/{{ $produto->idprodutos }}/edit" class="btn-sm bg-yellow">Editar</a>
             </td>
