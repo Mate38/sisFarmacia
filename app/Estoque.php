@@ -24,4 +24,9 @@ class Estoque extends Model
     {
         $this->hasMany(Produto::class);
     }
+
+    public function nome($id)
+    {
+        return Produto::find($id)->nome;
+    }
 }

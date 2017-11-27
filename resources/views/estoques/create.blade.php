@@ -5,7 +5,7 @@
 @section('content_header')
     <section class="content-header">
       <h1>
-        Fornecedores
+        Estoque
       </h1>
     </section>
 @stop
@@ -62,14 +62,15 @@
                 </div>
 
                  <div class="form-group has-feedback {{ $errors->has('Produtos_idProdutos') ? 'has-error' : '' }}">
-                  <label for="Produtos_idProdutos" class="col-sm-2 control-label">Id do produto</label>
+                  <label for="Produtos" class="col-sm-2 control-label">Produtos</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="Produtos_idProdutos" placeholder="">
+                    <select id="Produtos_idProdutos" name="Produtos_idProdutos" class="form-control">
+                      @foreach($produtos as  $produto)
+                          <option value="{{$produto->idprodutos}}">{{$produto->nome}}</option>
+                      @endforeach
+                    </select>
                   </div>
                 </div>
-             
-
-      
 
               <div class="box-footer">
                 <button type="submit" class="btn btn-success pull-right">Salvar</button>
