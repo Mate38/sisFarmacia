@@ -3235,18 +3235,21 @@ table.text-center th {
  */
 .login-logo,
 .register-logo {
-  font-size: 35px;
+  font-size: 45px;
   text-align: center;
   margin-bottom: 25px;
-  font-weight: 300;
+  font-weight: 400;
+  text-shadow: 2px 2px rgb(240, 240, 240);
 }
 .login-logo a,
 .register-logo a {
-  color: #444;
+  color: rgb(47, 48, 42);
 }
 .login-page,
 .register-page {
-  background: #d2d6de;
+  background-image: url('imgs/fundo6.jpg');
+  background-size: 100%;
+  /*background: #973a3a;*/
 }
 .login-box,
 .register-box {
