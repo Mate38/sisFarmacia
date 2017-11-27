@@ -21,19 +21,14 @@ class CreateVendaProdutosTable extends Migration
     {
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('idvenda_produtos');
+            $table->increments('id');
             $table->integer('quantidade')->nullable();
-            $table->decimal('valor_unitario', 10, 2)->nullable();
-            $table->unsignedInteger('vendas_idvendas');
+            $table->decimal('valorTotal', 10, 2)->nullable();
             $table->timestamps();
 
-            $table->index(["vendas_idvendas"], 'fk_vendaprodutos_vendas1_idx');
+            $table->integer('produtos_id')->unsigned();
+            $table->foreign('produtos_id')->references('idprodutos')->on('produtos');
 
-
-            $table->foreign('vendas_idvendas', 'fk_vendaprodutos_vendas1_idx')
-                ->references('idvendas')->on('vendas')
-                ->onDelete('no action')
-                ->onUpdate('no action');
         });
     }
 

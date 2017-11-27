@@ -17,7 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('home', 'HomeController@index')->name('home');
+Route::get('home', 'Venda_ProdutoController@create');
+
+Route::get('vendas', 'Venda_ProdutoController@create');
+Route::post('vendas', 'Venda_ProdutoController@store');
+Route::delete('vendas/{id}', 'Venda_ProdutoController@destroy');
+Route::post('vendas/finaliza', 'VendaController@store');
+Route::get('vendas/prazo', 'VendaController@prazo');
 
 /**
  * Suas rotas vão colocada daqui para baixo

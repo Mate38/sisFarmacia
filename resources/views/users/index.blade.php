@@ -35,10 +35,11 @@
                 @endif
             </td>
             <td>
-              {!! Form::open(['url' => 'users/'.$user->id, 'method' => 'delete', 'class'=>'form-horizontal', 'id'=>"form_buttons"]) !!}
-                <a href="password/reset/{{ $user->id }}" class="btn-sm bg-yellow">Resetar Senha</a>
-                <a href="#" class="btn-sm bg-red" onClick="document.getElementById('form_buttons').submit();">Excluir</a>
-              {!! Form::close() !!}
+              {{ Form::open( array('url' => "users/$user->id") ) }}
+                {{ Form::hidden('_method', 'DELETE') }}
+                <a href="password/reset/{{ $user->id }}" class="btn btn-warning btn-flat btn-sm">Resetar Senha</a>
+                {!! Form::submit('Excluir', ['class' => 'btn btn-danger btn-flat btn-sm']) !!}
+              {{ Form::close()}}
             </td>
           </tr>
         @endforeach

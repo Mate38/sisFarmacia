@@ -38,4 +38,18 @@ class UserController extends Controller
 
         return view('users.details')->with('detailpage', $users);        
     }
+
+    public function destroy(Request $request, $id){
+        $user = User::find($id);
+        if($user->id != 1){
+            if ($user -> delete()) {
+                $request -> session() -> flash('message', 'Usuário Excluído');
+            } else {
+                $request -> session() -> flash('message', 'Houve falha ao excluir');
+            }
+       }else {
+           $request -> session() -> flash('message', 'Usuário administrador, portanto não pode ser apagado!!!');
+       }
+        return redirect()->route('users.index');        
+    }
 }

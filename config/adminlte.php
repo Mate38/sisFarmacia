@@ -85,7 +85,7 @@ return [
     |
     */
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'vendas',
 
     'logout_url' => 'logout',
 
@@ -111,7 +111,7 @@ return [
         'MAIN NAVIGATION',
         [
             'text' => 'Vendas',
-            'url'  => 'home',
+            'url'  => 'vendas',
             'icon' => 'user',
         ],
         [
