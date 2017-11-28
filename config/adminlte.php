@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Edição: Mateus Cardoso
+ * 
+ * E-mail: matecardoso38@gmail.com
+ */
+
 return [
 
     /*

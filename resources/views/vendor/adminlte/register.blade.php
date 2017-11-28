@@ -1,3 +1,8 @@
+<!-- 
+	Edição: Mateus Cardoso 
+	E-mail: matecardoso38@gmail.com 
+-->
+
 @extends('adminlte::page')
 
 @section('title')
@@ -82,7 +87,7 @@
                 </div>
 
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary pull-right">Salvar</button>
+                    <button type="submit" class="btn btn-primary btn-flat pull-right">Salvar</button>
                 </div>
 
             </div>
