@@ -71,17 +71,18 @@
                             </tr>
                         @endforeach
                             <tr>
-                                <td></td>
-                                <td style="text-align: right">
+                                <td style="background-color: #E6E6E6;"></td>
+                                <td style="text-align: right; background-color: #E6E6E6;">
                                     <b>TOTAL:</b>
                                 </td>
-                                <td>
+                                <td style="background-color: #E6E6E6;">
                                     <b>{{$valor_total}}</b>
                                 </td>
-                                <td></td>
+                                <td style="background-color: #E6E6E6;"></td>
                             </tr>
                         </tbody>
                     </table>
+                    
                     <div class="box-footer">
                         {!! Form::open(['url' => 'vendas/finaliza', 'class'=>'form-horizontal', 'id'=>"form_buttons2"]) !!}
                             <button type="submit" class="btn btn-flat btn-success pull-right">Encerrar</button>
