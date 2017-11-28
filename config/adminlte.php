@@ -118,10 +118,11 @@ return [
         [
             'text' => 'Vendas',
             'url'  => 'vendas',
-            'icon' => 'user',
+            'icon' => 'shopping-cart',
         ],
         [
             'text' => 'Clientes',
+            'icon' => 'users',
             'submenu' => [
                 [
                     'text' => 'Listar',
@@ -135,6 +136,7 @@ return [
         ],
         [
             'text' => 'Estoque',
+            'icon' => 'dropbox',
             'submenu' => [
                 [
                     'text' => 'Listar',
@@ -148,6 +150,7 @@ return [
         ],
         [
             'text' => 'Produtos',
+            'icon' => 'medkit',
             'submenu' => [
                 [
                     'text' => 'Listar',
@@ -161,6 +164,7 @@ return [
         ],
         [
             'text' => 'Forecedores',
+            'icon' => 'ambulance',
             'submenu' => [
                 [
                     'text' => 'Listar',
@@ -182,12 +186,12 @@ return [
         [
             'text'       => 'Usuários Cadastrados',
             'url'  => 'users',
-            'icon' => 'user',
+            'icon' => 'users',
         ],
         [
             'text'       => 'Cadastrar Novo Usuário',
             'url'  => 'users/create',
-            'icon' => 'user',
+            'icon' => 'user-plus',
         ],
     ],
 
