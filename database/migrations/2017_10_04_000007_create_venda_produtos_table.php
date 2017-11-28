@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Autor: Mateus Cardoso
+ * 
+ * E-mail: matecardoso38@gmail.com
+ */
+
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 

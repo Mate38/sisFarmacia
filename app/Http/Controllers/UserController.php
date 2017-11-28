@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Edição: Mateus Cardoso
+ * 
+ * E-mail: matecardoso38@gmail.com
+ */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -39,6 +45,31 @@ class UserController extends Controller
         return view('users.details')->with('detailpage', $users);        
     }
 
+    public function edit($id)
+    {
+        $users = User::find($id);
+    
+        return view('users.edit',['detailpage'=>$users]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'nivel' => 'required',
+        ]);
+        
+        $users = User::find($id);
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->password = bcrypt($request->password);
+        $users->nivel = $request->nivel;
+        $users->save();
+        return redirect('users')->with('message', 'Usuário atualizado com sucesso!');
+    }
+
     public function destroy(Request $request, $id){
         $user = User::find($id);
         if($user->id != 1){
@@ -48,7 +79,7 @@ class UserController extends Controller
                 $request -> session() -> flash('message', 'Houve falha ao excluir');
             }
        }else {
-           $request -> session() -> flash('message', 'Usuário administrador, portanto não pode ser apagado!!!');
+           $request -> session() -> flash('message', 'Usuário administrador não pode ser apagado!!!');
        }
         return redirect()->route('users.index');        
     }

@@ -1,3 +1,8 @@
+<!-- 
+	Autor: Mateus Cardoso 
+	E-mail: matecardoso38@gmail.com 
+-->
+
 @extends('adminlte::page')
 
 @section('title')
@@ -5,7 +10,7 @@
 @section('content_header')
     <section class="content-header">
         <h1>
-            Venda de clientes
+            Venda a prazo
         </h1>
     </section>
     @stop
@@ -13,7 +18,7 @@
     @section('content')
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div class="box box-success">
+            <div class="box">
 
                 {!! Form::open(array('url' => '/vendas/finaliza', 'class'=>'form-horizontal')) !!}
 
@@ -35,21 +40,11 @@
 
                 <div class="box-footer">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <button type="submit" class="btn bg-blue pull-right">Concluir</button>
+                    <button type="submit" class="btn btn-flat bg-blue pull-right">Concluir</button>
                 </div>
                 {!! Form::close() !!}
 
             </div>
-
-            <div class="small-box bg-aqua">
-                <div class="inner">
-                    <h3>{{$valor_total}}</h3>
-                    <p>Valor total</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-          </div>
 
         </div>
     </div>

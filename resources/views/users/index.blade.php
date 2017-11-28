@@ -1,3 +1,8 @@
+<!-- 
+	Autor: Mateus Cardoso 
+	E-mail: matecardoso38@gmail.com 
+-->
+
 @extends('adminlte::page')
 
 {{ Session::get('message') }}
@@ -30,14 +35,13 @@
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
             <td>
-                @if($user->nivel == 1) {{ 'Administrador' }} 
-                @elseif($user->nivel == 2) {{ 'Operacional' }}
-                @endif
+                {{ $user->nivel == 1 ? 'Administrador' : 'Operacional' }}
             </td>
             <td>
               {{ Form::open( array('url' => "users/$user->id") ) }}
                 {{ Form::hidden('_method', 'DELETE') }}
-                <a href="password/reset/{{ $user->id }}" class="btn btn-warning btn-flat btn-sm">Resetar Senha</a>
+                <!--<a href="password/reset/{{ $user->id }}" class="btn btn-warning btn-flat btn-sm">Resetar Senha</a>-->
+                <a href="/users/{{ $user->id }}/edit" class="btn btn-warning btn-flat btn-sm">Editar</a>
                 {!! Form::submit('Excluir', ['class' => 'btn btn-danger btn-flat btn-sm']) !!}
               {{ Form::close()}}
             </td>

@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Autor: Mateus Cardoso
+ * 
+ * E-mail: matecardoso38@gmail.com
+ */
+
 namespace App\Http\Middleware;
 
 use Illuminate\Support\Facades\Auth;

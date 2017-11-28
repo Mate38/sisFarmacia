@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Edição: Mateus Cardoso
+ * 
+ * E-mail: matecardoso38@gmail.com
+ */
+
 namespace App\Http\Controllers\Auth;
 
 use App\User;
@@ -27,7 +33,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/users';
 
     /**
      * Create a new controller instance.
