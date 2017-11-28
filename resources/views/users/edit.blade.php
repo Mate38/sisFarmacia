@@ -51,12 +51,8 @@
 									<label for="nivel" class="col-sm-2 control-label">Nível de acesso</label>
 									<div class="col-sm-10">
 										<select class="form-control" name="nivel" value="{{ $detailpage->nivel }}" placeholder="Nivel de acesso">
-											@if($detailpage->nivel != 2) <option value="2">Operacional</option>
-											@else <option value="2" selected>Operacional</option>
-											@endif
-											@if($detailpage->nivel != 1) <option value="1">Administrativo</option>
-											@else <option value="1" selected>Administrativo</option>
-											@endif
+											<option value="2" {{ $detailpage->nivel == 2 ? "selected='selected'" : "" }}>Operacional</option>
+											<option value="1" {{ $detailpage->nivel == 1 ? "selected='selected'" : "" }}>Administrativo</option>	
 										</select>
 									</div>
                 </div>

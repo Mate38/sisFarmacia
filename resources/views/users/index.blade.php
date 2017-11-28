@@ -35,9 +35,7 @@
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
             <td>
-                @if($user->nivel == 1) {{ 'Administrador' }} 
-                @elseif($user->nivel == 2) {{ 'Operacional' }}
-                @endif
+                {{ $user->nivel == 1 ? 'Administrador' : 'Operacional' }}
             </td>
             <td>
               {{ Form::open( array('url' => "users/$user->id") ) }}
