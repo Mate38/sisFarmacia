@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Produto;
+
+use App\Fornecedor;
 
 use App\Http\Requests;
-
-use App\Produto;
+use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
@@ -18,14 +19,17 @@ class ProdutoController extends Controller
     public function index()
     {
         $produtos = Produto::orderBy('Nome', 'asc')->get();
-        
+
         //$produtos = Produto::all();
-        return view('produtos.index',['produtos' => $produtos]);
+        return view('produtos.index',[
+            'produtos' => $produtos
+            ]);
     }
 
     public function create()
     {
-        return view('produtos.create');
+        $fornecedores = Fornecedor::all();
+        return view('produtos.create', ['fornecedores' => $fornecedores]);
     }
 
     public function store(Request $request)
@@ -33,10 +37,10 @@ class ProdutoController extends Controller
        
         $this->validate($request, [
             'Nome' => 'required',
-            'Valor' => 'required',
+            'Valor' => 'required|numeric',
 			'Classificacao' => 'required',
 			'Unidade_comp' => 'required',
-            'Quantidade_comp'=>'required',
+            'Quantidade_comp'=>'required|numeric',
             'Nome_generico'=>'required',
             'Fornecedor_idFornecedor'=>'required',
         ]);

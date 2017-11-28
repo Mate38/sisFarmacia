@@ -9,11 +9,6 @@
       <h1>
         Produtos
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="home"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="produtos">Produtos</a></li>
-        <li class="active">Produtos</li>
-      </ol>
     </section>
 @stop
 
@@ -34,7 +29,9 @@
           <th>Unidade Comprada</th>
           <th>Quantidade Comprada</th>
           <th>Nome Generico</th>
-          <th>Id Fornecedor</th>
+          <th>Fornecedor</th>
+          <th>Editar</th>
+          <th>Excluir</th>
         </tr>
       </thead>
       <tbody>
@@ -48,15 +45,15 @@
             <td>{{$produto->unidade}}</td>
             <td>{{$produto->quantidade}}</td>
             <td>{{$produto->nome_generico}}</td>
-            <td>{{$produto->fornecedores_idfornecedores}}</td>
-            <td>
-              {!! Form::open(['url' => 'produtos/'.$produto->idprodutos, 'method' => 'DELETE', 'class'=>'form-horizontal', 'id'=>"form_buttons"]) !!}
-                <button type="submit" class="btn-sm bg-red" >Excluir</button>
-              {!! Form::close() !!}
-            </td>
-
+            <td>{{$produto->nome($produto->fornecedores_idfornecedores)}}</td>
             <td>
               <a href="/produtos/{{ $produto->idprodutos }}/edit" class="btn-sm bg-yellow">Editar</a>
+            </td>
+              
+            <td>
+            {!! Form::open(['url' => 'produtos/'.$produto->idprodutos, 'method' => 'DELETE', 'class'=>'form-horizontal', 'id'=>"form_buttons"]) !!}
+              <a href="#" class="btn-sm bg-red" onClick="document.getElementById('form_buttons').submit();">Excluir</a>
+            {!! Form::close() !!}
             </td>
 
           </tr>

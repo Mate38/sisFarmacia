@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
-use App\Estoque;
 use App\Produto;
+use App\Estoque;
 
 class EstoqueController extends Controller
 {
@@ -32,7 +31,6 @@ class EstoqueController extends Controller
 
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'Produtos_idProdutos' => 'required',       
         ]);
@@ -48,10 +46,10 @@ class EstoqueController extends Controller
         $estoques->save();
 
         $produto = Produto::find($request->Produtos_idProdutos);
-        $produto->Quantidade += $request->Quantidade;
+        $produto->quantidade += $request->Quantidade;
         $produto->save();
 
-        return redirect('estoques')->with('message', 'Estoque atualizado com sucesso!');
+        return redirect('estoques')->with('message', 'Estoque cadastrado com sucesso!');
     }
 
     public function show($id)
@@ -74,14 +72,27 @@ class EstoqueController extends Controller
             'fornecedores_id' => 'required',
         ]);
         
+        /*
+         * Subtrair antes os valores da quantidade estoque em Produto
+         * voltando ao valor antes da adesão do estoque.
+         * E então adicionar novamente em produto.
+         */
+        
         $estoques = Estoque::find($id);
-		$estoques->quantidade = $request->quantidade;
-        $estoques->data_chegada = $request->data_chegada;
-        $estoques->data_vencimento = $request->data_vencimento;
-		$estoques->data_fabricacao = $request->data_fabricacao;
-		$estoques->lote_produto = $request->lote_produto;
-		$estoques->produtos_idprodutos = $request->produtos_idprodutos;
+
+        $produto = Produto::find($estoques->Produtos_idProdutos);
+        $produto = $produto->quantidade -= $estoques->Quantidade;
+        $produto = $produto->quantidade += $request->Quantidade;
+        $produto->save();
+        
+		$estoques->Quantidade = $request->Quantidade;
+        $estoques->Data_chegada = $request->Data_chegada;
+        $estoques->Data_vencimento = $request->Data_vencimento;
+		$estoques->Data_fabricacao = $request->Data_fabricacao;
+        $estoques->Lote_produto = $request->Lote_produto;
+		$estoques->Produtos_idProdutos = $request->Produtos_idProdutos;
         $estoques->save();
+
         return redirect('estoques')->with('message', 'Estoque atualizado com sucesso!');
     }
 

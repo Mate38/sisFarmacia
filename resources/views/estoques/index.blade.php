@@ -9,10 +9,6 @@
       <h1>
         Estoques
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="home"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Estoques</li>
-      </ol>
     </section>
 @stop
 
@@ -44,7 +40,7 @@
             <td>{{$estoque->data_vencimento}}</td>
             <td>{{$estoque->data_fabricacao}}</td>
             <td>{{$estoque->lote_produto}}</td>
-            <td>{{$estoque->produtos_idprodutos}}</td>
+            <td>{{$estoque->nome($estoque->produtos_idprodutos)}}</td>
 
             <td>
               {!! Form::open(['url' => 'estoques/'.$estoque->idestoques, 'method' => 'delete', 'class'=>'form-horizontal', 'idestoques'=>"form_buttons"]) !!}

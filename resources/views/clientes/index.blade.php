@@ -9,16 +9,10 @@
       <h1>
         Clientes
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="home"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Clientes</li>
-      </ol>
     </section>
 @stop
 
 @section('content')
-
-<div class="row">
   @if(Session::has('message'))
     <div class="alert alert-success">
       <em> {!! session('message') !!}</em>
@@ -76,5 +70,4 @@
       </table>
     </div>
   </div>
-</div>
 @endsection
