@@ -39,6 +39,31 @@ class UserController extends Controller
         return view('users.details')->with('detailpage', $users);        
     }
 
+    public function edit($id)
+    {
+        $users = User::find($id);
+    
+        return view('users.edit',['detailpage'=>$users]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'nivel' => 'required',
+        ]);
+        
+        $users = User::find($id);
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->password = bcrypt($request->password);
+        $users->nivel = $request->nivel;
+        $users->save();
+        return redirect('users')->with('message', 'Usuário atualizado com sucesso!');
+    }
+
     public function destroy(Request $request, $id){
         $user = User::find($id);
         if($user->id != 1){

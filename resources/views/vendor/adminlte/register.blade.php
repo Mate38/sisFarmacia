@@ -27,7 +27,7 @@
                     </div>
                     @if ($errors->has('name'))
                         <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
+                            <strong>Necessário informar o nome do usuário</strong>
                         </span>
                     @endif
                 </div>
@@ -36,11 +36,11 @@
                     <label for="email" class="col-sm-2 control-label">E-mail</label>
                     <div class="col-sm-10">
                         <input type="email" name="email" class="form-control" value="{{ old('email') }}"
-                            placeholder="{{ trans('adminlte::adminlte.email') }}">
+                            placeholder="E-mail do usuário">
                     </div>
                     @if ($errors->has('email'))
                         <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
+                            <strong>Necessário informar um e-mail válido</strong>
                         </span>
                     @endif
                 </div>
@@ -49,11 +49,11 @@
                     <label for="password" class="col-sm-2 control-label">Senha</label>
                     <div class="col-sm-10">
                         <input type="password" name="password" class="form-control"
-                            placeholder="{{ trans('adminlte::adminlte.password') }}">
+                            placeholder="Senha do usuário">
                     </div>
                     @if ($errors->has('password'))
                         <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
+                            <strong>Necessário informar uma senha válida</strong>
                         </span>
                     @endif
                 </div>
@@ -62,11 +62,11 @@
                     <label for="password" class="col-sm-2 control-label">Confirmação da senha</label>
                     <div class="col-sm-10">
                         <input type="password" name="password_confirmation" class="form-control"
-                            placeholder="{{ trans('adminlte::adminlte.retype_password') }}">
+                            placeholder="Confirmar a senha">
                     </div>
                     @if ($errors->has('password_confirmation'))
                         <span class="help-block">
-                            <strong>{{ $errors->first('password_confirmation') }}</strong>
+                            <strong>Senhas não conferem</strong>
                         </span>
                     @endif
                 </div>
