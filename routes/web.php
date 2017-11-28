@@ -30,6 +30,8 @@ Route::get('vendas/prazo', 'VendaController@prazo');
  */
 
 Route::resource('users', 'UserController');
+Route::get('personals', 'PersonalController@edit');
+Route::put('personals', 'PersonalController@update');
 
 Route::resource('clientes', 'ClienteController');
 Route::resource('produtos', 'ProdutoController');

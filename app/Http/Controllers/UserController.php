@@ -73,7 +73,7 @@ class UserController extends Controller
                 $request -> session() -> flash('message', 'Houve falha ao excluir');
             }
        }else {
-           $request -> session() -> flash('message', 'Usuário administrador, portanto não pode ser apagado!!!');
+           $request -> session() -> flash('message', 'Usuário administrador não pode ser apagado!!!');
        }
         return redirect()->route('users.index');        
     }
