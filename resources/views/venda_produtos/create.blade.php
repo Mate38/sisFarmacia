@@ -26,12 +26,18 @@
                                 @endforeach
                             </select>
                         </div>
+                        <!--@if ($errors->has('produtos_id'))
+                            <span class="help-block">
+                                <strong>Necessário selecionar um produto</strong>
+                            </span>
+                        @endif-->
                     </div>
 
                     <div class="form-group has-feedback {{ $errors->has('quantidade') ? 'has-error' : '' }}">
                         <label for="quantidade" class="col-sm-2 control-label">Quantidade</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="quantidade" placeholder="">
+                        <input type="text" onkeypress='return event.keyCode > 47 && event.keyCode < 58'
+                            class="form-control" name="quantidade" placeholder="">
                         </div>
                     </div>
 
@@ -83,7 +89,12 @@
                                 <td style="background-color: #E6E6E6;">
                                     <b>{{$valor_total}}</b>
                                 </td>
-                                <td style="background-color: #E6E6E6;"></td>
+                                <td style="background-color: #E6E6E6;">
+                                    {!! Form::open(['url' => 'vendas', 'method' => 'delete', 'class'=>'form-horizontal']) !!}
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <button type="submit" class="btn btn-xs btn-flat btn-danger">Limpar lista</button>
+                                    {!! Form::close() !!}
+                                </td>
                             </tr>
                         </tbody>
                     </table>

@@ -56,4 +56,16 @@ class VendaController extends Controller {
         return view('vendas/prazo',['clientes' => $clientes, 'valor_total' => $valor_total]);      
     }
 
+    public function destroy()
+    {
+        $venda_produtos = Venda_Produto::all();
+
+        foreach($venda_produtos as $venda_produto){
+
+            $venda_produto->delete();
+            
+        }
+        return redirect('vendas')->with('message', 'Lista limpa!');
+    }
+
 }
