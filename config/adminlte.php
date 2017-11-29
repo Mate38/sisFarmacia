@@ -6,6 +6,33 @@
  * E-mail: matecardoso38@gmail.com
  */
 
+use Illuminate\Support\Facades\Auth;
+
+function teste($nivel){
+    return ($nivel == 1) ? true : false;
+}
+
+//echo teste(1);
+
+//if(teste(Auth::user()->nivel)){
+if(teste(1)){
+    $painel = 'PAINEL ADMINISTRATIVO';
+    $menu =  [
+        'text'       => 'Usuários Cadastrados',
+        'url'  => 'users',
+        'icon' => 'users',
+    ];
+    $menu2 = [
+        'text'       => 'Cadastrar Novo Usuário',
+        'url'  => 'users/create',
+        'icon' => 'user-plus',
+    ];
+}else{
+    $painel = '';
+    $menu = '';
+    $menu2 = '';
+}
+
 return [
 
     /*
@@ -127,10 +154,12 @@ return [
                 [
                     'text' => 'Listar',
                     'url'  => 'clientes',
+                    'icon' => 'list',
                 ],
                 [
                     'text' => 'Cadastrar',
                     'url'  => 'clientes/create',
+                    'icon' => 'pencil-square-o',
                 ],
             ],
         ],
@@ -141,10 +170,12 @@ return [
                 [
                     'text' => 'Listar',
                     'url'  => 'estoques',
+                    'icon' => 'list',
                 ],
                 [
                     'text' => 'Cadastrar',
                     'url'  => 'estoques/create',
+                    'icon' => 'pencil-square-o',
                 ],
             ],
         ],
@@ -155,10 +186,12 @@ return [
                 [
                     'text' => 'Listar',
                     'url'  => 'produtos',
+                    'icon' => 'list',
                 ],
                 [
                     'text' => 'Cadastrar',
                     'url'  => 'produtos/create',
+                    'icon' => 'pencil-square-o',
                 ],
             ],
         ],
@@ -169,10 +202,12 @@ return [
                 [
                     'text' => 'Listar',
                     'url'  => 'fornecedores',
+                    'icon' => 'list',
                 ],
                 [
                     'text' => 'Cadastrar',
                     'url'  => 'fornecedores/create',
+                    'icon' => 'pencil-square-o',
                 ],
             ],
         ],
@@ -182,17 +217,9 @@ return [
             'url'  => 'personals',
             'icon' => 'user',
         ],
-        'PAINEL ADMINISTRATIVO',
-        [
-            'text'       => 'Usuários Cadastrados',
-            'url'  => 'users',
-            'icon' => 'users',
-        ],
-        [
-            'text'       => 'Cadastrar Novo Usuário',
-            'url'  => 'users/create',
-            'icon' => 'user-plus',
-        ],
+        $painel,
+        $menu,
+        $menu2,
     ],
 
     /*

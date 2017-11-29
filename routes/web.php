@@ -24,6 +24,7 @@ Route::post('vendas', 'Venda_ProdutoController@store');
 Route::delete('vendas/{id}', 'Venda_ProdutoController@destroy');
 Route::post('vendas/finaliza', 'VendaController@store');
 Route::get('vendas/prazo', 'VendaController@prazo');
+Route::delete('vendas', 'VendaController@destroy');
 
 /**
  * Suas rotas vão colocada daqui para baixo
